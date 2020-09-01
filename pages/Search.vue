@@ -6,6 +6,7 @@
 import { Vue } from 'nuxt-property-decorator';
 
 export default Vue.extend({
-  name: "Search"
+  name: "Search",
+  layout: "entry"
 })
 </script>

@@ -1,18 +1,18 @@
 <template>
   <div>
-    <Link location="about" name="About" />
-    <Link location="search" name="Search" />
+    <text-link location="about">about</text-link>
+    <text-link location="search">search</text-link>
   </div>
 </template>
 
 <script lang="ts">
 import { Vue } from 'nuxt-property-decorator';
-import Link from '@/components/atoms/Link/TextLink.vue';
+import TextLink from '@/components/atoms/Link/TextLink.vue';
 
 export default Vue.extend({
   name: "StaticLinks",
   components: {
-    Link
+    TextLink
   },
 })
 </script>

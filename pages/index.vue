@@ -1,24 +1,27 @@
 <template>
-  <div>
-      <logo />
-      <left-page />
-      <right-page />
+  <div class="main-body">
+    <detail-search />
+    <job-card />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
-import Logo from '@/components/Logo.vue';
-import LeftPage from '@/components/organisms/LeftPage.vue';
-import RightPage from '@/components/organisms/RightPage.vue';
-
+import JobCard from '@/components/organisms/JobCard.vue';
+import DetailSearch from '@/components/organisms/DetailSearch.vue';
 @Component({
   components: {
-    Logo,
-    LeftPage,
-    RightPage
+    JobCard,
+    DetailSearch
   }
 })
 
 export default class Index extends Vue {}
 </script>
+
+<style scoped>
+.main-body {
+  display: flex;
+  justify-content: space-around;
+}
+</style>

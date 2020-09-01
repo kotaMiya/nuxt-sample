@@ -1,37 +1,36 @@
 <template>
-  <nuxt-link :class="className" :to="location">
-    <slot></slot>
-  </nuxt-link>
+  <img :src="url" :class="className">
 </template>
 
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api';
 
 type Props = {
+  url: string;
   className: string;
-  location: string;
 }
 
 export default defineComponent({
-  name: "TextLink",
+  name: 'JobImage',
   props: {
-    className: {
-      type: String
-    }, 
-    location: {
+    url: {
       type: String,
       required: true
+    },
+    className: {
+      type: String
     }
   },
   setup(props: Props) {
+    props.url;
     props.className;
-    props.location;
   }
 })
 </script>
 
 <style scoped>
-.text-link {
-  background-color: gold;
+img {
+  width: 100px;
+  height: 100px;
 }
 </style>

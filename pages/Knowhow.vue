@@ -1,16 +1,14 @@
 <template>
   <div>
-      <logo />
+    就活ノウハウ
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
-import Logo from '@/components/Logo.vue';
 
 @Component({
   components: {
-    Logo,
   }
 })
 

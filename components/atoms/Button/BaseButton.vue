@@ -1,6 +1,6 @@
 <template>
   <button @click="clickHandler">
-    Button
+    <slot></slot>
   </button>
 </template>
 
