@@ -23,7 +23,7 @@ import JobImage from "@/components/atoms/Image/JobImage.vue";
 import PText from "@/components/atoms/Text/PText.vue";
 
 type Props = {
-  id: number;
+  id: string;
   title: string;
 }
 
@@ -36,7 +36,7 @@ export default defineComponent({
   },
   props: {
     id: {
-      type: Number,
+      type: String,
       required: true
     },
     title: {
