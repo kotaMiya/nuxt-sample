@@ -52,7 +52,11 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    "@nuxtjs/axios",
+    "@nuxtjs/proxy",
   ],
+  axios: {
+  },
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
@@ -60,6 +64,13 @@ export default {
   build: {
   },
   storybook: {
-    // Options
+  },
+  proxy: {
+    '/api/job': {
+      target: 'http://localhost:3000/stubs',
+      pathRewrite: {
+        '^/api/job': 'job.json',
+      },
+    },
   }
 }

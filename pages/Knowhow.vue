@@ -12,5 +12,5 @@ import { Component, Vue } from 'nuxt-property-decorator';
   }
 })
 
-export default class Index extends Vue {}
+export default class KnowHow extends Vue {}
 </script>

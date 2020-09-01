@@ -19,7 +19,7 @@ import DetailSearch from '@/components/organisms/DetailSearch.vue';
 export default class Index extends Vue {}
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .main-body {
   display: flex;
   justify-content: space-around;

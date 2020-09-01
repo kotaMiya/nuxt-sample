@@ -1,19 +1,26 @@
 <template>
-  <button @click="clickHandler">
+  <button :class="className">
     <slot></slot>
   </button>
 </template>
 
 <script lang="ts">
-import { Vue } from 'nuxt-property-decorator';
+import { defineComponent } from "@vue/composition-api";
 
-export default Vue.extend({
+type Props = {
+  className: string;
+}
+
+export default defineComponent({
   name: "TextButton",
-  methods: {
-    clickHandler: () => {
-      console.log('hi');
+  props: {
+    className: {
+      type: String
     }
-  } 
+  },
+  setup(props: Props) {
+    props.className;
+  }
 })
 </script>
 

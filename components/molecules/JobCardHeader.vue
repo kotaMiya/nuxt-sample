@@ -1,33 +1,75 @@
 <template>
   <div class="job-card-header">
-    <job-image />
-    <text-link location="/">レバレジーズ株式会社</text-link>
-    <p-text>NEW</p-text>
-    <p-text>2022年卒</p-text>
-    <p-text>【22卒エンジニア / 1days 8.9月】グループワークでソフトウェア開発を使用！◎登戸 / 交通費支給</p-text>
-  </div>  
+    <div class="job-card-header__image">
+      <job-image url="/" />
+    </div>
+    <div class="job-card-header__title">
+      <text-link location="/">レバレジーズ株式会社</text-link>
+    </div>
+    <div class="job-card-header__flag">
+        <p-text>NEW</p-text>
+        <p-text>2022年卒</p-text> 
+      </div>
+    <div class="job-card-header__description">
+      <p-text>【22卒エンジニア / 1days 8.9月】グループワークでソフトウェア開発を使用！◎登戸 / 交通費支給</p-text>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api';
-import TextLink from '@/components/atoms/Link/TextLink.vue';
-import JobImage from '@/components/atoms/Image/JobImage.vue';
-import PText from '@/components/atoms/Text/PText.vue';
+import { defineComponent } from "@vue/composition-api";
+import TextLink from "@/components/atoms/Link/TextLink.vue";
+import JobImage from "@/components/atoms/Image/JobImage.vue";
+import PText from "@/components/atoms/Text/PText.vue";
+
+type Props = {
+  id: number;
+  title: string;
+}
 
 export default defineComponent({
   name: "JobCardHeader",
   components: {
     TextLink,
     JobImage,
-    PText
+    PText,
+  },
+  props: {
+    id: {
+      type: Number,
+      required: true
+    },
+    title: {
+      type: String,
+      required: true
+    }
   }
-})
+});
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .job-card-header {
   width: 770px;
   height: 120px;
   background-color: darkcyan;
+  display: flex;
+
+  &__image {
+    margin: 10px;
+    flex: left;
+  }
+
+  &__title {
+    flex: right;
+  }
+
+  &__flag {
+   flex: right;
+   display: flex; 
+  }
+
+  &__description {
+    float: left;
+  }
 }
 </style>

@@ -12,13 +12,21 @@ import JobCardHeader from '@/components/molecules/JobCardHeader.vue';
 import JobCardBody from '@/components/molecules/JobCardBody.vue';
 import JobCardFooter from '@/components/molecules/JobCardFooter.vue';
 
+import axios from 'axios'
+
 export default Vue.extend({
   name: "JobCard",
   components: {
     JobCardHeader,
     JobCardBody,
     JobCardFooter
-  }
+  },
+  mounted() {
+    axios.get('http://localhost:3000/api/job')
+      .then(res => {
+        console.log(res);
+      });
+  } 
 })
 </script>
 
