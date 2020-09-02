@@ -7,20 +7,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "@vue/composition-api";
+import { defineComponent, PropType } from "@vue/composition-api";
 import JobCardHeader from '@/components/molecules/JobCardHeader.vue';
 import JobCardBody from '@/components/molecules/JobCardBody.vue';
 import JobCardFooter from '@/components/molecules/JobCardFooter.vue';
-
-import axios from 'axios'
-
-type Job = {
-  job: object;
-}
-
-type Jobs = {
-  jobs: Job[];
-}
+import Job from '@/models/Job';
+import axios from 'axios';
 
 export default defineComponent({
   name: "JobCard",
@@ -31,17 +23,16 @@ export default defineComponent({
   },
   props: {
     jobs: {
-      type: Object
+      type: Object as PropType<Job[]>
     }
   },
-  setup(props: Jobs) {
-    props.jobs
-    console.log("dkdkdk", props.jobs.jobs.value);
+  setup(props: Job[]) {
+    console.log(props.jobs.jobs);
   }
 })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .job-card {
   width: 770px;
   height: 580px;

@@ -6,30 +6,24 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onBeforeMount, reactive, onMounted } from "@vue/composition-api";
+import { defineComponent, ref, onBeforeMount, reactive, onMounted, toRefs, onServerPrefetch } from "@vue/composition-api";
 import JobCard from '@/components/organisms/JobCard.vue';
 import DetailSearch from '@/components/organisms/DetailSearch.vue';
+import Job from '@/models/Job';
 import axios from 'axios';
 
-type Job = {
-  id: number;
-  title: string;
-}
-
-type Jobs = {
-  jobs: Job[];
-}
-
 const getJobsFromApi = () => {
-  let jobs: any  = ref('test');
+  let jobs = ref<Job[]>([]);
 
   const getJobs = () => {
-    axios.get('http://localhost:3000/api/job')
-      .then(res => (jobs.value = res.data));
+    axios.get<Job[]>('http://localhost:3000/api/job')
+      .then(res => {
+        jobs.value = res.data;
+      });
   }
 
-  onMounted(() => {
-    getJobs();
+  onMounted(async () => {
+    await getJobs();
   })
 
   return {
@@ -45,8 +39,15 @@ export default defineComponent({
     DetailSearch
   },
   setup() {
-    const jobs = getJobsFromApi();
-    
+    // const jobs = getJobsFromApi();
+    const jobs = ref();   
+    onServerPrefetch(async () => {
+      jobs.value = await axios.get<Job[]>('http://localhost:3000/api/job')
+        .then(res => {
+          return res.data;
+        });
+    })
+
     return {
       jobs
     }

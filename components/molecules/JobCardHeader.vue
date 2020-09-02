@@ -1,18 +1,24 @@
 <template>
   <div class="job-card-header">
-    <div class="job-card-header__image">
+    <div class="job-card-header__left">
       <job-image url="/" />
     </div>
-    <div class="job-card-header__title">
-      <text-link location="/">レバレジーズ株式会社</text-link>
-    </div>
-    <div class="job-card-header__flag">
-        <p-text>NEW</p-text>
-        <p-text>2022年卒</p-text> 
+    <div class="job-card-header__right">
+      <div class="job-card-header__right-top">
+        <div class="job-card-header__right-top__title">
+          <text-link location="/">レバレジーズ株式会社</text-link>
+        </div>
+        <div class="job-card-header__right-top__flag">
+            <p-text>NEW</p-text>
+            <p-text>2022年卒</p-text> 
+        </div>
       </div>
-    <div class="job-card-header__description">
-      <p-text>【22卒エンジニア / 1days 8.9月】グループワークでソフトウェア開発を使用！◎登戸 / 交通費支給</p-text>
-    </div>
+      <div class="job-card-header__right-bottom">
+        <div class="job-card-header__right-bottom__description">
+          <p-text>【22卒エンジニア / 1days 8.9月】グループワークでソフトウェア開発を使用！◎登戸 / 交通費支給</p-text>
+        </div>
+      </div>
+    </div> 
   </div>
 </template>
 
@@ -54,22 +60,28 @@ export default defineComponent({
   background-color: darkcyan;
   display: flex;
 
-  &__image {
+  &__left {
     margin: 10px;
     flex: left;
   }
 
-  &__title {
+  &__right {
     flex: right;
-  }
+    display: flex;
+    flex-direction: column;
 
-  &__flag {
-   flex: right;
-   display: flex; 
-  }
+    &-top {
+      display: flex;
 
-  &__description {
-    float: left;
+      &__title {
+        flex: left;
+      }
+
+      &__flag {
+        flex: right;
+        display: flex;
+      }
+    }
   }
 }
 </style>
