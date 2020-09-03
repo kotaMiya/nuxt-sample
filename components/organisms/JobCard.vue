@@ -1,13 +1,15 @@
 <template>
-  <div class="job-card">
-    <job-card-header id="1" title="title test" />
-    <job-card-body />
-    <job-card-footer />
+  <div>
+    <div class="job-card" v-for="job in jobs" :key="job.id">
+      <job-card-header :id="job.id" :title="job.title" />
+      <job-card-body />
+      <job-card-footer />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "@vue/composition-api";
+import { defineComponent, PropType, toRef } from "@vue/composition-api";
 import JobCardHeader from '@/components/molecules/JobCardHeader.vue';
 import JobCardBody from '@/components/molecules/JobCardBody.vue';
 import JobCardFooter from '@/components/molecules/JobCardFooter.vue';
@@ -23,11 +25,12 @@ export default defineComponent({
   },
   props: {
     jobs: {
-      type: Object as PropType<Job[]>
+      type: Array as PropType<Job[]>,
+      default: () => [],
     }
   },
-  setup(props: Job[]) {
-    console.log(props.jobs.jobs);
+  setup(props) {
+    console.log('job card', props.jobs);
   }
 })
 </script>

@@ -39,7 +39,6 @@ export default defineComponent({
     DetailSearch
   },
   setup() {
-    // const jobs = getJobsFromApi();
     const jobs = ref();   
     onServerPrefetch(async () => {
       jobs.value = await axios.get<Job[]>('http://localhost:3000/api/job')
@@ -48,6 +47,7 @@ export default defineComponent({
         });
     })
 
+    console.log('index', jobs);
     return {
       jobs
     }
