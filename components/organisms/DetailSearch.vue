@@ -18,5 +18,6 @@ export default Vue.extend({
   width: 300px;
   height: 700px;
   background-color: slateblue;
+  margin-top: 30px;
 }
 </style>

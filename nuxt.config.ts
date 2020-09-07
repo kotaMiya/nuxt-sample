@@ -1,3 +1,4 @@
+import { NuxtAxiosInstance } from '@nuxtjs/axios';
 
 export default {
   /*
@@ -72,5 +73,11 @@ export default {
         '^/api/job': 'job.json',
       },
     },
+  }
+}
+
+declare module 'vue/types/vue' {
+  interface Vue {
+    $axios: NuxtAxiosInstance
   }
 }

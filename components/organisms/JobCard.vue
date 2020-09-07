@@ -25,12 +25,8 @@ export default defineComponent({
   },
   props: {
     jobs: {
-      type: Array as PropType<Job[]>,
-      default: () => [],
+      type: Array as PropType<Job[]>
     }
-  },
-  setup(props) {
-    console.log('job card', props.jobs);
   }
 })
 </script>
@@ -40,5 +36,6 @@ export default defineComponent({
   width: 770px;
   height: 580px;
   background-color: grey;
+  margin: 30px 0;
 }
 </style>
