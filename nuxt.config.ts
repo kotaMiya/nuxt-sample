@@ -47,8 +47,7 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
-    '@nuxt/typescript-build',
-    '@nuxtjs/stylelint-module'
+    '@nuxt/typescript-build'
   ],
   /*
   ** Nuxt.js modules
@@ -65,11 +64,6 @@ export default {
   */
   build: {
     extend(config: any, ctx: any) {
-      'stylelint-config-standard'
-      'stylelint-config-recommended-scss'
-      'stylelint-config-prettier'
-      'stylelint-config-recess-order'
-      'stylelint-prettier/recommended'
     }
   }
 };

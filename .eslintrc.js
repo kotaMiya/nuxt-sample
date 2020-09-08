@@ -6,7 +6,8 @@ module.exports = {
   parser: "@typescript-eslint/parser",
   extends: [
     "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plubin:@nuxtjs/eslint-config-typescript"
   ],
   parserOptions: {
     ecmaVersion: 2018,
