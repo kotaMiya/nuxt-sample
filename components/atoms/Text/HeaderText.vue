@@ -5,14 +5,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, ref } from '@vue/composition-api';
+import Vue from 'vue';
 
 type Props = {
   className: string;
   size: string;
 }
 
-export default defineComponent({
+export default Vue.extend({
   name: "HeaderText",
   props: {
     className: {
@@ -22,10 +22,6 @@ export default defineComponent({
       type: String,
       required: true
     } 
-  },
-  setup(props: Props) {
-    props.className;
-    props.size; 
-  } 
+  }
 })
 </script>

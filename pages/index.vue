@@ -6,13 +6,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "@vue/composition-api";
+import Vue from 'vue';;
 import JobCard from '@/components/organisms/JobCard.vue';
 import DetailSearch from '@/components/organisms/DetailSearch.vue';
 import Job from '@/models/Job';
 import axios from 'axios';
 
-export default ({
+export default Vue.extend({
   name: "Index",
   components: {
     JobCard,
@@ -25,7 +25,6 @@ export default ({
   },
   async asyncData() {
     const res = await axios.get<Job[]>('http://localhost:3000/api/job');
-    console.log(res.data);
     return {
       jobs: res.data
     }

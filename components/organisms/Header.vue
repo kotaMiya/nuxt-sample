@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts">
-import { Vue } from 'nuxt-property-decorator';
+import Vue from 'vue';
 import TextLink from '@/components/atoms/Link/TextLink.vue';
 
 export default Vue.extend({

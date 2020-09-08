@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { Vue } from 'nuxt-property-decorator';
+import Vue from 'vue';
 import StaticLinks from '@/components/molecules/StaticLinks.vue';
 
 export default Vue.extend({

@@ -3,14 +3,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api';
+import Vue from 'vue';
 
 type Props = {
   url: string;
   className: string;
 }
 
-export default defineComponent({
+export default Vue.extend({
   name: 'JobImage',
   props: {
     url: {
@@ -20,10 +20,6 @@ export default defineComponent({
     className: {
       type: String
     }
-  },
-  setup(props: Props) {
-    props.url;
-    props.className;
   }
 })
 </script>

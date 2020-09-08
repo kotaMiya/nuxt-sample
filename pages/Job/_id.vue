@@ -6,11 +6,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "@vue/composition-api";
+import Vue from 'vue';
 import DetailSearch from '@/components/organisms/DetailSearch.vue';
 import Job from '@/models/Job';
 
-export default ({
+export default Vue.extend({
   name: "Job",
   components: {
     DetailSearch

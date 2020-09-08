@@ -5,14 +5,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api';
+import Vue from 'vue';
 
 type Props = {
   className: string;
   location: string;
 }
 
-export default defineComponent({
+export default Vue.extend({
   name: "TextLink",
   props: {
     className: {
@@ -22,10 +22,6 @@ export default defineComponent({
       type: String,
       required: true
     }
-  },
-  setup(props: Props) {
-    props.className;
-    props.location;
   }
 })
 </script>

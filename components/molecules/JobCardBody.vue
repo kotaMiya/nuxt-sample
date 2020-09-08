@@ -6,12 +6,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "@vue/composition-api";
+import Vue from 'vue';
 import TextLink from "@/components/atoms/Link/TextLink.vue";
 import JobImage from "@/components/atoms/Image/JobImage.vue";
 import PText from "@/components/atoms/Text/PText.vue";
 
-export default defineComponent({
+export default Vue.extend({
   name: "JobCardBody",
   components: {
     TextLink,

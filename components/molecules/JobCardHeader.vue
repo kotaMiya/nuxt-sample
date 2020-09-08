@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "@vue/composition-api";
+import Vue from 'vue';
 import TextLink from "@/components/atoms/Link/TextLink.vue";
 import JobImage from "@/components/atoms/Image/JobImage.vue";
 import PText from "@/components/atoms/Text/PText.vue";
@@ -33,12 +33,17 @@ type Props = {
   title: string;
 }
 
-export default defineComponent({
+export default Vue.extend({
   name: "JobCardHeader",
   components: {
     TextLink,
     JobImage,
     PText,
+  },
+  data() {
+    return {
+      jobUrl: '' as string
+    }
   },
   props: {
     id: {
@@ -51,12 +56,8 @@ export default defineComponent({
       default: "Test title"
     }
   },
-  setup({ id }) {
-    const jobUrl = "/job/" + id;
-
-    return {
-      jobUrl
-    }
+  mounted() {
+    this.jobUrl = '/job/' + this.$props.id;
   }
 });
 </script>

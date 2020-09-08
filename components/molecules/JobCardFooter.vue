@@ -6,10 +6,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "@vue/composition-api";
+import Vue from 'vue';
 import BaseButton from "@/components/atoms/Button/BaseButton.vue";
 
-export default defineComponent({
+export default Vue.extend({
   name: "JobCardFooter",
   components: {
     BaseButton,

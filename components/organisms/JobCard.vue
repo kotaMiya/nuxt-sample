@@ -9,14 +9,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, toRef } from "@vue/composition-api";
+import Vue, { PropOptions } from 'vue';
 import JobCardHeader from '@/components/molecules/JobCardHeader.vue';
 import JobCardBody from '@/components/molecules/JobCardBody.vue';
 import JobCardFooter from '@/components/molecules/JobCardFooter.vue';
 import Job from '@/models/Job';
 import axios from 'axios';
 
-export default defineComponent({
+export default Vue.extend({
   name: "JobCard",
   components: {
     JobCardHeader,
@@ -24,16 +24,16 @@ export default defineComponent({
     JobCardFooter
   },
   props: {
-    jobs: {
-      type: Array as PropType<Job[]>,
-      default: [
+    jobs: { type: Array } as PropOptions<Job[]>,
+    default: () => {
+      [
         {
           'id': 1,
-          'title': 'Test title'
+          'title': 'Test Title'
         }
       ]
-    }
-  }
+    } 
+  } 
 })
 </script>
 

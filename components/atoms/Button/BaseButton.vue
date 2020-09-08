@@ -5,21 +5,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "@vue/composition-api";
+import Vue from 'vue';
 
 type Props = {
   className: string;
 }
 
-export default defineComponent({
+export default Vue.extend({
   name: "TextButton",
   props: {
     className: {
       type: String
     }
-  },
-  setup(props: Props) {
-    props.className;
   }
 })
 </script>
