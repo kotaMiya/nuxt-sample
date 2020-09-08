@@ -18,6 +18,7 @@ import axios from 'axios';
 
 export default Vue.extend({
   name: "JobCard",
+
   components: {
     JobCardHeader,
     JobCardBody,

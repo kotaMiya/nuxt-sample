@@ -48,6 +48,7 @@ export default {
   */
   buildModules: [
     '@nuxt/typescript-build',
+    '@nuxtjs/stylelint-module'
   ],
   /*
   ** Nuxt.js modules
@@ -63,17 +64,31 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
-  },
-  storybook: {
-  },
-  proxy: {
-    '/api/job': {
-      target: 'http://localhost:3000/stubs',
-      pathRewrite: {
-        '^/api/job': 'job.json',
-      },
-    },
+    extend(config: any, ctx: any) {
+      'stylelint-config-standard'
+      'stylelint-config-recommended-scss'
+      'stylelint-config-prettier'
+      'stylelint-config-recess-order'
+      'stylelint-prettier/recommended'
+    }
   }
+};
+
+storybook: {
+};
+
+proxy: {
+  '/api/job'; {
+    target: 'http://localhost:3000/stubs'
+    pathRewrite: {
+      '^/api/job'; 'job.json'
+    }
+  }
+}
+
+typescript: {
+  typeCheck: true
+  ignoreNotFoundWarnings: true
 }
 
 declare module 'vue/types/vue' {
