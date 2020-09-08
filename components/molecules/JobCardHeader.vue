@@ -6,7 +6,7 @@
     <div class="job-card-header__right">
       <div class="job-card-header__right-top">
         <div class="job-card-header__right-top__title">
-          <text-link location="/">レバレジーズ株式会社</text-link>
+          <text-link :location="jobUrl">{{ title }}</text-link>
         </div>
         <div class="job-card-header__right-top__flag">
             <p-text>NEW</p-text>
@@ -47,7 +47,15 @@ export default defineComponent({
     },
     title: {
       type: String,
-      required: true
+      required: true,
+      default: "Test title"
+    }
+  },
+  setup({ id }) {
+    const jobUrl = "/job/" + id;
+
+    return {
+      jobUrl
     }
   }
 });

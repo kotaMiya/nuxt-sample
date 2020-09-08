@@ -25,7 +25,13 @@ export default defineComponent({
   },
   props: {
     jobs: {
-      type: Array as PropType<Job[]>
+      type: Array as PropType<Job[]>,
+      default: [
+        {
+          'id': 1,
+          'title': 'Test title'
+        }
+      ]
     }
   }
 })

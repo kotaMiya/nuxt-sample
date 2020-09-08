@@ -1,6 +1,6 @@
 <template>
   <div>
-    <text-link location="about">about</text-link>
+    <text-link location="/">home</text-link>
     <text-link location="search">search</text-link>
   </div>
 </template>

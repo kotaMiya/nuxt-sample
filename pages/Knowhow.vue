@@ -5,12 +5,9 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator';
+import { defineComponent } from "@vue/composition-api";
 
-@Component({
-  components: {
-  }
+export default defineComponent({
+  name: "Knowhow"
 })
-
-export default class KnowHow extends Vue {}
 </script>
