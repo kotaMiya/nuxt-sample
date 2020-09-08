@@ -11,5 +11,5 @@ export const NuxtWebsite = () => ({
   components: {
     BaseButton
   },
-  template: '<BaseButton />'
+  template: '<BaseButton>Button</BaseButton>'
 })
