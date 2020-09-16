@@ -47,7 +47,8 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
-    '@nuxt/typescript-build'
+    '@nuxt/typescript-build',
+    '@nuxtjs/tailwindcss'
   ],
   /*
   ** Nuxt.js modules
@@ -65,25 +66,24 @@ export default {
   build: {
     extend(config: any, ctx: any) {
     }
-  }
-};
-
-storybook: {
-};
-
-proxy: {
-  '/api/job'; {
-    target: 'http://localhost:3000/stubs'
-    pathRewrite: {
-      '^/api/job'; 'job.json'
+  },
+  proxy: {
+    '/api/job': {
+      target: 'http://localhost:3000/stubs',
+      pathRewrite: {
+        '^/api/job': 'job.json'
+      }
     }
+  },
+  storybook: {
+  },
+  typescript: {
+    typeCheck: true,
+    ignoreNotFoundWarnings: true
   }
-}
+};
 
-typescript: {
-  typeCheck: true
-  ignoreNotFoundWarnings: true
-}
+
 
 declare module 'vue/types/vue' {
   interface Vue {
