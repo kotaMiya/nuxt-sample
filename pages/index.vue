@@ -1,46 +1,49 @@
 <template>
 	<div class="main-body">
-		<detail-search />
-		<job-card :jobs="jobs" />
+		<hero />
+		<past-company-list />
+		<who-we-are />
+		<chosen-reason />
+		<user-voice />
+		<service-flow />
+		<adviser />
+		<search-company />
 	</div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import JobCard from "@/components/organisms/JobCard.vue";
-import DetailSearch from "@/components/organisms/DetailSearch.vue";
-import Job from "@/models/Job";
+import Hero from "@/components/organisms/Top/Hero.vue";
+import PastCompanyList from "@/components/organisms/Top/PastCompanyList.vue";
+import WhoWeAre from "@/components/organisms/Top/WhoWeAre.vue";
+import ChosenReason from "@/components/organisms/Top/ChosenReason.vue";
+import UserVoice from "@/components/organisms/Top/UserVoice.vue";
+import ServiceFlow from "@/components/organisms/Top/ServiceFlow.vue";
+import Adviser from "@/components/organisms/Top/Adviser.vue";
+import SearchCompany from "@/components/organisms/Top/SearchCompany.vue";
 
 export default Vue.extend({
-	name: "Index",
+	name: "Top",
 	components: {
-		JobCard,
-		DetailSearch,
+		Hero,
+		PastCompanyList,
+		WhoWeAre,
+		ChosenReason,
+		UserVoice,
+		ServiceFlow,
+		Adviser,
+		SearchCompany,
 	},
+	props: {},
 	data() {
-		return {
-			jobs: [] as Job[],
-		};
+		return {};
 	},
-	async asyncData({ app, error }) {
-		try {
-			const res = await app.$axios.get<Job[]>("http://localhost:3000/api/job");
-			return {
-				jobs: res.data,
-			};
-		} catch (err) {
-			error({
-				statusCode: err.response.status,
-				message: err.response.message,
-			});
-		}
-	},
+	computed: {},
 });
 </script>
 
 <style lang="scss" scoped>
 .main-body {
-	display: flex;
 	justify-content: space-around;
 }
 </style>

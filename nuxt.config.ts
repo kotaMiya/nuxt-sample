@@ -1,5 +1,3 @@
-import { NuxtAxiosInstance } from '@nuxtjs/axios';
-
 export default {
   /*
   ** Nuxt rendering mode
@@ -30,7 +28,7 @@ export default {
   ** Global CSS
   */
   css: [
-    '@/assets/scss/style.scss'
+    '@/assets/scss/style.scss',
   ],
   /*
   ** Plugins to load before mounting the App
@@ -48,7 +46,7 @@ export default {
   */
   buildModules: [
     '@nuxt/typescript-build',
-    '@nuxtjs/tailwindcss'
+    // 'nuxt-typed-vuex'
   ],
   /*
   ** Nuxt.js modules
@@ -64,14 +62,32 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
-    extend(config: any, ctx: any) {
-    }
+    transpile: [/typed-vuex/],
+    extend(config: any, ctx: any) { },
   },
   proxy: {
-    '/api/job': {
+    '/api/offers': {
       target: 'http://localhost:3000/stubs',
       pathRewrite: {
-        '^/api/job': 'job.json'
+        '^/api/offers': 'offers.json'
+      }
+    },
+    '/api/prefectures': {
+      target: 'http://localhost:3000/stubs',
+      pathRewrite: {
+        '^/api/prefectures': 'prefectures.json'
+      }
+    },
+    '/api/seminars': {
+      target: 'http://localhost:3000/stubs',
+      pathRewrite: {
+        '^/api/seminars': 'seminars.json'
+      }
+    },
+    '/api/seminar': {
+      target: 'http://localhost:3000/stubs',
+      pathRewrite: {
+        '^/api/seminar': 'seminar.json'
       }
     }
   },
@@ -80,13 +96,5 @@ export default {
   typescript: {
     typeCheck: true,
     ignoreNotFoundWarnings: true
-  }
+  },
 };
-
-
-
-declare module 'vue/types/vue' {
-  interface Vue {
-    $axios: NuxtAxiosInstance
-  }
-}

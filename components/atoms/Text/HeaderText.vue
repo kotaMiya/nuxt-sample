@@ -5,12 +5,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-
-type Props = {
-  className: string;
-  size: string;
-}
+import Vue from "vue";
 
 export default Vue.extend({
   name: "HeaderText",
@@ -20,8 +15,8 @@ export default Vue.extend({
     },
     size: {
       type: String,
-      required: true
-    } 
-  }
-})
+      required: true,
+    },
+  },
+});
 </script>

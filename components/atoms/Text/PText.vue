@@ -1,22 +1,15 @@
 <template>
-  <p :class="className">
-    <slot></slot>
-  </p>
+	<div>
+		<p>
+			<slot></slot>
+		</p>
+	</div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-
-type Props = {
-  className: string;
-}
+import Vue from "vue";
 
 export default Vue.extend({
-  name: "PText",
-  props: {
-    className: {
-      type: String,
-    }
-  }
-})
+	name: "PText",
+});
 </script>

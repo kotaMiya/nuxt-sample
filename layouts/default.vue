@@ -7,28 +7,21 @@
 </template>
 
 <script lang="ts">
-import Header from '@/components/organisms/Header.vue';
-import Footer from '@/components/organisms/Footer.vue';
+import Header from "@/components/organisms/Layout/BaseHeader.vue";
+import Footer from "@/components/organisms/Layout/BaseFooter.vue";
 
 export default {
   components: {
     Header,
-    Footer
-  }  
-}
+    Footer,
+  },
+};
 </script>
 
 <style>
 html {
-  font-family:
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
